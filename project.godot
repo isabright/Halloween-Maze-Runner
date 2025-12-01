@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="template"
+config/name="Halloween-Maze-Runner"
 run/main_scene="uid://djesya8pcmvj4"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
