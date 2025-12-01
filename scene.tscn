@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://djesya8pcmvj4"]
+
+[ext_resource type="Script" uid="uid://cuoelkqkamkjw" path="res://xr_origin_3d.gd" id="1_ulcgi"]
+[ext_resource type="Material" uid="uid://cbiopta7ysae7" path="res://materials/green.tres" id="2_nxogm"]
+[ext_resource type="Material" uid="uid://df53b4g3lnqdf" path="res://materials/controller.tres" id="2_u3cyc"]
+[ext_resource type="Material" uid="uid://443b0ug07g0c" path="res://materials/blue.tres" id="3_3253y"]
+[ext_resource type="Script" uid="uid://bvs6fw585ybll" path="res://moving_box.gd" id="5_m7jmp"]
+
+[sub_resource type="Environment" id="Environment_3253y"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u3cyc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+script = ExtResource("1_ulcgi")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Left" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="Left" type="CSGBox3D" parent="XROrigin3D/Left"]
+size = Vector3(0.1, 0.1, 0.1)
+material = ExtResource("2_u3cyc")
+
+[node name="Right" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="Right" type="CSGBox3D" parent="XROrigin3D/Right"]
+size = Vector3(0.1, 0.1, 0.1)
+material = ExtResource("2_u3cyc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3253y")
+camera_attributes = SubResource("CameraAttributesPractical_u3cyc")
+
+[node name="Ground" type="CSGBox3D" parent="WorldEnvironment"]
+material_override = ExtResource("2_nxogm")
+size = Vector3(1000, 0.1, 1000)
+
+[node name="Light" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 60.923, 0)
+light_color = Color(0.277966, 0.496084, 1, 1)
+
+[node name="SpinningBox" type="CSGBox3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5172, 9.6312, 0)
+size = Vector3(3, 3, 3)
+material = ExtResource("3_3253y")
+script = ExtResource("5_m7jmp")
