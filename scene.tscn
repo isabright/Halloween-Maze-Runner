@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://djesya8pcmvj4"]
+[gd_scene load_steps=10 format=3 uid="uid://djesya8pcmvj4"]
 
 [ext_resource type="Script" uid="uid://cuoelkqkamkjw" path="res://xr_origin_3d.gd" id="1_ulcgi"]
-[ext_resource type="Material" uid="uid://cbiopta7ysae7" path="res://materials/green.tres" id="2_nxogm"]
 [ext_resource type="Material" uid="uid://df53b4g3lnqdf" path="res://materials/controller.tres" id="2_u3cyc"]
-[ext_resource type="Material" uid="uid://443b0ug07g0c" path="res://materials/blue.tres" id="3_3253y"]
-[ext_resource type="Script" uid="uid://bvs6fw585ybll" path="res://moving_box.gd" id="5_m7jmp"]
+[ext_resource type="Material" uid="uid://ba7aq5ouueryb" path="res://materials/floor.tres" id="3_3253y"]
+[ext_resource type="Material" uid="uid://bqhgrsecbo0ge" path="res://materials/laser.tres" id="4_xlvrw"]
+[ext_resource type="Material" uid="uid://7w1cf8cybhs3" path="res://materials/wall.tres" id="6_xlvrw"]
+[ext_resource type="Script" uid="uid://foyejjt7oqjh" path="res://skeleton_spawner.gd" id="8_xlvrw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_73fnb"]
+height = 1.5
+radius = 0.05
 
 [sub_resource type="Environment" id="Environment_3253y"]
 
@@ -16,7 +21,7 @@
 script = ExtResource("1_ulcgi")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="Left" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
@@ -32,20 +37,55 @@ tracker = &"right_hand"
 size = Vector3(0.1, 0.1, 0.1)
 material = ExtResource("2_u3cyc")
 
+[node name="Area3D" type="Area3D" parent="XROrigin3D/Right"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Right/Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.75)
+shape = SubResource("CylinderShape3D_73fnb")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="XROrigin3D/Right/Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.75)
+radius = 0.05
+height = 1.5
+material = ExtResource("4_xlvrw")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3253y")
 camera_attributes = SubResource("CameraAttributesPractical_u3cyc")
 
 [node name="Ground" type="CSGBox3D" parent="WorldEnvironment"]
-material_override = ExtResource("2_nxogm")
-size = Vector3(1000, 0.1, 1000)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.92166)
+material_override = ExtResource("3_3253y")
+size = Vector3(3, -1.5, 9.5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60077, 4.7)
+size = Vector3(3, 6.73291, 0.1)
+material = ExtResource("6_xlvrw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.59595, -4.8)
+size = Vector3(3, 6.80811, 0.1)
+material = ExtResource("6_xlvrw")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/Ground"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 2.60693, -0.02)
+size = Vector3(9.561, 6.78613, 0.1)
+material = ExtResource("6_xlvrw")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/Ground"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 2.63574, -0.016)
+size = Vector3(9.55, 6.72852, 0.1)
+material = ExtResource("6_xlvrw")
 
 [node name="Light" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 60.923, 0)
 light_color = Color(0.277966, 0.496084, 1, 1)
 
-[node name="SpinningBox" type="CSGBox3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5172, 9.6312, 0)
-size = Vector3(3, 3, 3)
-material = ExtResource("3_3253y")
-script = ExtResource("5_m7jmp")
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.69578)
+omni_range = 5.84559
+
+[node name="SkeletonSpawner" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.25912)
+script = ExtResource("8_xlvrw")

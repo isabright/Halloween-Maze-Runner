@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://djgt37bp2mwb7"]
+
+[ext_resource type="PackedScene" uid="uid://dfxnn0045n1l1" path="res://models/cand_ycorn/candycord.gltf" id="1_4whgc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_4whgc")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

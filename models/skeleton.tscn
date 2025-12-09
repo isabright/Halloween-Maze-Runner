@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d8lvp73l5r17"]
+
+[ext_resource type="Script" uid="uid://byc75bs7mm6un" path="res://models/skeleton.gd" id="1_w3gm7"]
+[ext_resource type="PackedScene" uid="uid://qmothphjaqyd" path="res://models/scene.gltf" id="1_wse0u"]
+[ext_resource type="Material" uid="uid://dyves0sksmn56" path="res://materials/clear.tres" id="3_bmayy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bmayy"]
+height = 3.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jkeh4"]
+material = ExtResource("3_bmayy")
+height = 3.0
+
+[node name="Skeleton" type="Node3D"]
+script = ExtResource("1_w3gm7")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_wse0u")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Sketchfab_Scene"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0406117, 0)
+shape = SubResource("CapsuleShape3D_bmayy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sketchfab_Scene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107199, -0.10834, -9.37163e-11)
+mesh = SubResource("CapsuleMesh_jkeh4")
+
+[connection signal="area_entered" from="Sketchfab_Scene/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Sketchfab_Scene/Area3D" to="." method="_on_area_3d_area_exited"]

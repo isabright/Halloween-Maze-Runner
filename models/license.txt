@@ -1,0 +1,11 @@
+Model Information:
+* title:	CAND YCORN
+* source:	https://sketchfab.com/3d-models/cand-ycorn-1397960671a04e0aa2050efb7e2f1257
+* author:	Imramc (https://sketchfab.com/miriamcecidzul)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "CAND YCORN" (https://sketchfab.com/3d-models/cand-ycorn-1397960671a04e0aa2050efb7e2f1257) by Imramc (https://sketchfab.com/miriamcecidzul) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
