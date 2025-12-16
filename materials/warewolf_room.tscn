@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh7a2ri42b2l0"]
+
+[ext_resource type="Texture2D" uid="uid://piq0agnbprtj" path="res://models/dirt/Textures/T_xdhhdgq_2K_B.png" id="1_y4fa1"]
+[ext_resource type="PackedScene" uid="uid://cx8mqnjnablu" path="res://models/warewolf/scene.gltf" id="2_jymgm"]
+[ext_resource type="PackedScene" uid="uid://ba74dn8cedrne" path="res://models/moon/scene.gltf" id="3_lnthf"]
+
+[sub_resource type="Environment" id="Environment_tlqcr"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u42r6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkgwk"]
+albedo_texture = ExtResource("1_y4fa1")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="Left" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="Right" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tlqcr")
+camera_attributes = SubResource("CameraAttributesPractical_u42r6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+material_override = SubResource("StandardMaterial3D_fkgwk")
+size = Vector3(12, 0.001, 9.5)
+
+[node name="Sketchfab_Scene" parent="WorldEnvironment" instance=ExtResource("2_jymgm")]
+transform = Transform3D(-0.615263, 0, -0.788322, 0, 1, 0, 0.788322, 0, -0.615263, 3.90543, 0, -5.73981)
+
+[node name="Sketchfab_Scene2" parent="WorldEnvironment" instance=ExtResource("2_jymgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74655, 0, -6.70867)
+
+[node name="Sketchfab_Scene3" parent="WorldEnvironment" instance=ExtResource("2_jymgm")]
+transform = Transform3D(-0.268264, 0, 0.963345, 0, 1, 0, -0.963345, 0, -0.268264, 2.05825, 0, -5.44738)
+
+[node name="Sketchfab_Scene4" parent="WorldEnvironment" instance=ExtResource("3_lnthf")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 20, -4.79036)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/Sketchfab_Scene4"]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0, 0, 0)
+light_energy = 16.0

@@ -16,10 +16,11 @@ func _process(delta):
 		next_time = randf_range(1.0, 5.0)
 		var instance = skeleton.instantiate()
 		x_rand = randf_range(-0.5, 0.5)
-		var change = Vector3(x_rand, 1, 0)
+		var change = Vector3(x_rand, 0.75, 0)
 		instance.global_position += change
 		var pos = instance.global_position
 		add_child(instance)
+		
 		
 		if instance.hit_count == 2:
 			var candy_instance = candy.instantiate()
