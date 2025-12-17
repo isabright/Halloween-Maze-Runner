@@ -103,11 +103,11 @@ size = Vector3(12, 0.001, 9.5)
 material = SubResource("StandardMaterial3D_gu47o")
 
 [node name="SkeletonSpawner" type="Node3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90647, 0, -7.58504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90647, 0, -7.07765)
 script = ExtResource("7_2lb0p")
 
 [node name="SkeletonSpawner" type="Node3D" parent="WorldEnvironment/SkeletonSpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39977, 0, -1.2122)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39977, 0, -0.081243)
 script = ExtResource("7_2lb0p")
 
 [node name="Sketchfab_Scene" parent="WorldEnvironment" instance=ExtResource("8_odeoc")]

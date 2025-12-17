@@ -1,13 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://dh7a2ri42b2l0"]
+[gd_scene load_steps=23 format=3 uid="uid://dh7a2ri42b2l0"]
 
 [ext_resource type="Texture2D" uid="uid://piq0agnbprtj" path="res://models/dirt/Textures/T_xdhhdgq_2K_B.png" id="1_y4fa1"]
 [ext_resource type="PackedScene" uid="uid://cx8mqnjnablu" path="res://models/warewolf/scene.gltf" id="2_jymgm"]
 [ext_resource type="Script" uid="uid://baud1bttc85uo" path="res://models/warewolf/wolf.gd" id="3_fkgwk"]
 [ext_resource type="PackedScene" uid="uid://ba74dn8cedrne" path="res://models/moon/scene.gltf" id="3_lnthf"]
+[ext_resource type="Script" uid="uid://cyd5561n1jnt2" path="res://models/warewolf/wolf2.gd" id="4_5j5mh"]
 [ext_resource type="PackedScene" uid="uid://c1uj5ohj72pxy" path="res://models/trees_and_shrubs/japanese_maple/scene.gltf" id="4_u42r6"]
+[ext_resource type="Script" uid="uid://kfctbbeynodq" path="res://models/warewolf/wolf3.gd" id="5_8mu54"]
 [ext_resource type="PackedScene" uid="uid://c0sb85gd37kox" path="res://models/trees_and_shrubs/dead_shrub/vdknafgha_tier_2.gltf" id="5_fkgwk"]
 [ext_resource type="PackedScene" uid="uid://b6jyfmffcr7ky" path="res://models/trees_and_shrubs/populier/scene.gltf" id="6_ue1wl"]
+[ext_resource type="Script" uid="uid://vqoc50o57w1y" path="res://models/warewolf/wolf4.gd" id="6_vqujc"]
 [ext_resource type="PackedScene" uid="uid://dnpn77ubxbdvh" path="res://models/trees_and_shrubs/wild_grass/vczndjqja_tier_2.gltf" id="7_gnu1e"]
+[ext_resource type="Script" uid="uid://brk3pwqvsjkbd" path="res://models/warewolf/wolf5.gd" id="7_unjed"]
+[ext_resource type="Script" uid="uid://bc7alv78cngpi" path="res://models/warewolf/wolf6.gd" id="8_vx22i"]
 
 [sub_resource type="Environment" id="Environment_tlqcr"]
 
@@ -68,6 +73,7 @@ shape = SubResource("CapsuleShape3D_u42r6")
 
 [node name="ww2" parent="WorldEnvironment" instance=ExtResource("2_jymgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74655, 0, -6.70867)
+script = ExtResource("4_5j5mh")
 
 [node name="Area3D" type="Area3D" parent="WorldEnvironment/ww2"]
 
@@ -77,6 +83,7 @@ shape = SubResource("CapsuleShape3D_fkgwk")
 
 [node name="ww3" parent="WorldEnvironment" instance=ExtResource("2_jymgm")]
 transform = Transform3D(-0.268264, 0, 0.963345, 0, 1, 0, -0.963345, 0, -0.268264, 2.05825, 0, -5.44738)
+script = ExtResource("5_8mu54")
 
 [node name="Area3D" type="Area3D" parent="WorldEnvironment/ww3"]
 
@@ -86,6 +93,7 @@ shape = SubResource("CapsuleShape3D_ue1wl")
 
 [node name="ww4" parent="WorldEnvironment" instance=ExtResource("2_jymgm")]
 transform = Transform3D(-0.615263, 0, -0.788322, 0, 1, 0, 0.788322, 0, -0.615263, -2.53202, 0, -4.61626)
+script = ExtResource("6_vqujc")
 
 [node name="Area3D" type="Area3D" parent="WorldEnvironment/ww4"]
 
@@ -94,6 +102,7 @@ shape = SubResource("CapsuleShape3D_gnu1e")
 
 [node name="ww5" parent="WorldEnvironment" instance=ExtResource("2_jymgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6909, 0, -5.58512)
+script = ExtResource("7_unjed")
 
 [node name="Area3D" type="Area3D" parent="WorldEnvironment/ww5"]
 
@@ -102,6 +111,7 @@ shape = SubResource("CapsuleShape3D_2p235")
 
 [node name="ww6" parent="WorldEnvironment" instance=ExtResource("2_jymgm")]
 transform = Transform3D(-0.268264, 0, 0.963345, 0, 1, 0, -0.963345, 0, -0.268264, -4.3792, 0, -4.32383)
+script = ExtResource("8_vx22i")
 
 [node name="Area3D" type="Area3D" parent="WorldEnvironment/ww6"]
 
@@ -109,15 +119,11 @@ transform = Transform3D(-0.268264, 0, 0.963345, 0, 1, 0, -0.963345, 0, -0.268264
 shape = SubResource("CapsuleShape3D_exlqp")
 
 [node name="moon" parent="WorldEnvironment" instance=ExtResource("3_lnthf")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 20, -4.79036)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 18.1211, -4.79036)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/moon"]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0, 0, 0)
 light_energy = 16.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74349, -2.1228)
-omni_range = 16.1435
 
 [node name="maple1" parent="WorldEnvironment" instance=ExtResource("4_u42r6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.638877, 0, -3.24448)
@@ -144,3 +150,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52405, 0, -6.61617)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.08244, 0, 4.133)
 
 [connection signal="area_entered" from="WorldEnvironment/ww1/Area3D" to="WorldEnvironment/ww1" method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="WorldEnvironment/ww2/Area3D" to="WorldEnvironment/ww2" method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="WorldEnvironment/ww3/Area3D" to="WorldEnvironment/ww3" method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="WorldEnvironment/ww4/Area3D" to="WorldEnvironment/ww4" method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="WorldEnvironment/ww5/Area3D" to="WorldEnvironment/ww5" method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="WorldEnvironment/ww6/Area3D" to="WorldEnvironment/ww6" method="_on_area_3d_area_entered"]
