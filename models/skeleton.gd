@@ -8,6 +8,7 @@ var old_material
 
 
 
+
 func _ready():
 	old_material = preload("res://materials/clear.tres")
 	new_material = preload("res://materials/laser.tres")
@@ -22,6 +23,7 @@ func _on_area_3d_area_entered(area: Area3D):
 	$"Sketchfab_Scene/MeshInstance3D".material_override = new_material
 	if hit_count == 2:
 		queue_free()
+	
 
 
 

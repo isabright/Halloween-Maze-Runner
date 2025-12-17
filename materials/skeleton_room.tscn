@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dwewoeju3fuuq"]
+[gd_scene load_steps=21 format=3 uid="uid://dwewoeju3fuuq"]
 
 [ext_resource type="Script" uid="uid://cuoelkqkamkjw" path="res://xr_origin_3d.gd" id="1_rbtqg"]
 [ext_resource type="Material" uid="uid://df53b4g3lnqdf" path="res://materials/controller.tres" id="2_2wjcq"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bkmx8q31s5rlk" path="res://models/coffin/scene.gltf" id="9_bahsk"]
 [ext_resource type="PackedScene" uid="uid://ds1utsa0pqyse" path="res://models/pumpkin/pumpkin1/scene.gltf" id="10_ylbch"]
 [ext_resource type="PackedScene" uid="uid://bbnsm5qob2qln" path="res://models/pumpkin/jackolantern/scene.gltf" id="11_35epc"]
+[ext_resource type="PackedScene" uid="uid://b1u3tw72aosnl" path="res://models/door/scene.gltf" id="12_2wjcq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_73fnb"]
 height = 1.5
@@ -145,3 +146,9 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.65528, 0.270134, -7.36168)
 
 [node name="Sketchfab_Scene8" parent="WorldEnvironment" instance=ExtResource("11_35epc")]
 transform = Transform3D(0.571381, 0, 0.404381, 0, 0.7, 0, -0.404381, 0, 0.571381, -3.2251, 0.597448, -6.14261)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("12_2wjcq")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, -8.139)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("12_2wjcq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3837)
