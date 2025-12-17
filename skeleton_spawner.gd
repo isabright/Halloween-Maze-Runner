@@ -32,7 +32,9 @@ func _process(delta):
 			
 func spawn_candy(pos: Vector3):
 	if candy_created == 5:
-		var key_inst = key.instatiate()
+		var key_inst = key.instantiate()
+		var change = Vector3(0, .4, .3)
+		key_inst.global_position += change
 		add_child(key_inst)
 	else:
 		var candy_inst = candy.instantiate()
